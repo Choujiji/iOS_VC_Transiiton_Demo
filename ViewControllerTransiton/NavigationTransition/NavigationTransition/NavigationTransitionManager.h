@@ -11,4 +11,10 @@
 
 @interface NavigationTransitionManager : NSObject <UINavigationControllerDelegate>
 
+/** 标识是否为交互过程 */
+@property (assign, nonatomic) BOOL isInteractive;
+
+/** 转场交互对象 */
+@property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition;
+
 @end

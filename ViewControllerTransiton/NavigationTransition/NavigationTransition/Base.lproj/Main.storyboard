@@ -19,10 +19,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="delegate" destination="dXt-nN-Ikz" id="SUv-Kl-fWt"/>
                         <segue destination="EAq-3P-KfR" kind="relationship" relationship="rootViewController" id="Eno-Rs-wMZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4c-O6-Kdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="dXt-nN-Ikz" customClass="NavigationTransitionManager"/>
             </objects>
             <point key="canvasLocation" x="-457" y="130"/>
         </scene>

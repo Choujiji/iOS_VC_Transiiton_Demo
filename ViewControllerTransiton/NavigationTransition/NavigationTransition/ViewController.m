@@ -20,13 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.manager = [[NavigationTransitionManager alloc] init];
+//    self.manager = [[NavigationTransitionManager alloc] init];
+//    self.navigationController.delegate = self.manager;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationController.delegate = self.manager;
+//    self.navigationController.delegate = self.manager;
 }
 
 
