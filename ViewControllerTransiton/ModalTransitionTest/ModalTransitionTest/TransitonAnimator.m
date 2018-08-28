@@ -8,6 +8,10 @@
 
 #import "TransitonAnimator.h"
 
+@interface TransitonAnimator ()
+
+@end
+
 @implementation TransitonAnimator
 
 - (void)animateTransition:(nonnull id<UIViewControllerContextTransitioning>)transitionContext {
@@ -19,6 +23,7 @@
     // View
     UIView *fromView = fromVC.view;
     UIView *toView = toVC.view;
+
     
     CGFloat containerHeight = CGRectGetHeight(containerView.bounds);
     
@@ -30,11 +35,19 @@
     if (toVC.isBeingPresented) {
         // 从下到上出现
         
+        // 给fromView添加缩小动画
+        CGAffineTransform fromViewStartTransform = CGAffineTransformIdentity;
+        CGAffineTransform fromViewEndTransform = CGAffineTransformScale(fromViewStartTransform, 0.8, 0.8);
+        
         // 将toView加到容器上
         toView.frame = toViewStartFrame;
         [containerView addSubview:toView];
+        
+        fromView.transform = fromViewStartTransform;
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toView.frame = toViewEndFrame;
+            fromView.transform = fromViewEndTransform;
         } completion:^(BOOL finished) {
             // 结束转场
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
@@ -50,8 +63,14 @@
             [containerView insertSubview:toView atIndex:0];
         }
         
+        // 给presentingView添加动画
+        [containerView insertSubview:toView atIndex:0];
+        
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromView.frame = toViewStartFrame;
+            
+            toView.transform = CGAffineTransformIdentity;
+            
         } completion:^(BOOL finished) {
                 // 结束转场
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];

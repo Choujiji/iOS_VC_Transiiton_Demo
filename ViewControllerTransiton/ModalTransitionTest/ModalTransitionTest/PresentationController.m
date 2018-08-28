@@ -38,4 +38,9 @@
     }];
 }
 
+- (BOOL)shouldRemovePresentersView {
+    // presentation结束后，移除presentingView
+    return YES;
+}
+
 @end
