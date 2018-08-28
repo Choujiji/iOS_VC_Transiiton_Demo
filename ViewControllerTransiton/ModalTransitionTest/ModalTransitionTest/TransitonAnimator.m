@@ -25,10 +25,10 @@
     UIView *toView = toVC.view;
 
     
-    CGFloat containerHeight = CGRectGetHeight(containerView.bounds);
+    CGFloat containerWidth = CGRectGetWidth(containerView.bounds);
     
     // 起止状态
-    CGRect toViewStartFrame = CGRectMake(0, containerHeight, CGRectGetWidth(toView.bounds), CGRectGetHeight(toView.bounds));
+    CGRect toViewStartFrame = CGRectMake(containerWidth, 0, CGRectGetWidth(toView.bounds), CGRectGetHeight(toView.bounds));
     CGRect toViewEndFrame = CGRectMake(0, 0, CGRectGetWidth(toView.bounds), CGRectGetHeight(toView.bounds));
     
     // presentation过程
@@ -37,7 +37,7 @@
         
         // 给fromView添加缩小动画
         CGAffineTransform fromViewStartTransform = CGAffineTransformIdentity;
-        CGAffineTransform fromViewEndTransform = CGAffineTransformScale(fromViewStartTransform, 0.8, 0.8);
+        CGAffineTransform fromViewEndTransform = CGAffineTransformScale(fromViewStartTransform, 0.9, 0.9);
         
         // 将toView加到容器上
         toView.frame = toViewStartFrame;
@@ -79,7 +79,7 @@
 }
 
 - (NSTimeInterval)transitionDuration:(nullable id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.5;
+    return 0.4;
 }
 
 @end

@@ -11,4 +11,8 @@
 
 @interface ModalTransitionManager : NSObject <UIViewControllerTransitioningDelegate>
 
+@property (assign, nonatomic) BOOL isInteractive;
+
+@property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition;
+
 @end

@@ -34,7 +34,8 @@
     [self.presentedViewController.transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         self.backgroundView.alpha = 0;
     } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        [self.backgroundView removeFromSuperview];
+        // 注意：这里不能移除view：如果移除，当转场被取消后，再次触发时，view便不在视图层级中了
+//        [self.backgroundView removeFromSuperview];
     }];
 }
 
