@@ -11,4 +11,9 @@
 
 @interface TabBarManager : NSObject <UITabBarControllerDelegate>
 
+/** 交互状态标识 */
+@property (assign, nonatomic) BOOL isInteractive;
+
+/** 交互控制器 */
+@property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition;
 @end
